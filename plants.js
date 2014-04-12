@@ -35,6 +35,8 @@ function makePlant () {
   return plant;
 };
 
+/* a funtion that builds an index of every different value of a trait in a certain list of plants and makes those values into properties
+ and sorts the plants into those properties (bins) based on their trait value*/ 
 function makeIndex (trait, plantList) {
   var index = {};
   plantList.forEach(function(plant){
@@ -53,7 +55,7 @@ function getRandomInt (min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-//run makePlant 10 times and store the new plants in plantList
+//run makePlant 1000 times and store the new plants in plantList
 //then show the list on the console
 var i;
 var plantListTest = [];
@@ -61,7 +63,11 @@ for(i=0; i<1000; i++) {
   plantListTest.push(makePlant());
 };
 //console.log(plantListTest);
+// make an index of a particular trait in plantListTest
 var index = makeIndex("height", plantListTest);
+// log the value and number of plants in each bin on the index to the console
 Object.keys(index).forEach(function(value){
   console.log(value, index[value].length);
 });
+
+
